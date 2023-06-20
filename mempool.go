@@ -43,7 +43,7 @@ func getCaller() string{
       if !ok{
          break
       }
-      str += fmt.Sprintf("[%s:%d]",file,line)
+      str += fmt.Printf("[%s:%d]",file,line)
    }
    return str
 }
@@ -78,7 +78,7 @@ func (m *MemPoolOffsetTls)Malloc(size int) []byte {
    tmp := *buf
    if tmp[0] != 0 {
       call := getCaller()
-      fmt.Errorf("ptr:%d,i:%d,cap:%d\n caller:%s",&tmp[0],tmp[0],cap(tmp),call)
+      fmt.Printf("ptr:%d,i:%d,cap:%d\n caller:%s",&tmp[0],tmp[0],cap(tmp),call)
    }
    tmp[0] = 1
    *buf = (*buf)[m.offset:size]
